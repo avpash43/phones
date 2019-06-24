@@ -1,0 +1,41 @@
+package ru.phones.book.model;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Data
+@Entity
+public class Abonent {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
+
+    @NotNull
+    private Long employee;
+
+    @NotNull
+    private Long position;
+
+    @NotNull
+    private Long departament;
+
+    @NotNull
+    private Long address;
+
+    @NotNull
+    private Long phonenumber;
+
+    @NotNull
+    private Long headofunit;
+
+    @NotNull
+    private Date wasadded;
+
+    @PrePersist
+    void wasAdded() {
+        this.wasadded = new Date();
+    }
+}
