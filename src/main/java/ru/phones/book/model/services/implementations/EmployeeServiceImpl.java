@@ -6,12 +6,22 @@ import ru.phones.book.model.entites.Employee;
 import ru.phones.book.model.repositories.EmployeeRepository;
 import ru.phones.book.model.services.EmployeeService;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public Employee findById() {
-        return employeeRepository.findById(1L).orElse(new Employee());
+    @Override
+    public  List<Employee> findAll() {
+        List<Employee> epmloyees = (List<Employee>) employeeRepository.findAll();
+        return epmloyees;
+    }
+
+    public Employee findById(Long employeeId) {
+        return employeeRepository.findById(employeeId).orElse(new Employee());
     }
 }
