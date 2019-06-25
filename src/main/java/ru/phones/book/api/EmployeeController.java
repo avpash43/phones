@@ -1,11 +1,9 @@
 package ru.phones.book.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Employee;
 import ru.phones.book.model.services.EmployeeService;
 
@@ -29,5 +27,11 @@ public class EmployeeController {
     @GetMapping("/get/{employeeId}")
     public ResponseEntity<Employee> getById(@PathVariable(name="employeeId")Long employeeId) {
         return employeeService.findById(employeeId);
+    }
+
+    @PostMapping(path="/post", consumes="application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeService.addEmployee(employee);
     }
 }

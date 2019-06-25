@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Position {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
