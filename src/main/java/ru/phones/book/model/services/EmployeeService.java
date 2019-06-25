@@ -9,6 +9,6 @@ public interface EmployeeService {
     List<Employee> findAll();
     ResponseEntity<Employee> findById(Long employeeId);
     Employee addEmployee(Employee employee);
-    void deleteEmployee(Long employeeId);
+    void deleteEmployeeById(Long employeeId);
     void updateEmployee(Employee employee);
 }

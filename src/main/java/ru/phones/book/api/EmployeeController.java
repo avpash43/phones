@@ -34,4 +34,17 @@ public class EmployeeController {
     public Employee addEmployee(@RequestBody Employee employee) {
         return employeeService.addEmployee(employee);
     }
+
+    @DeleteMapping("/delete/{employeeId}")
+    public void deleteEmployeeById(@PathVariable(name="employeeId")Long employeeId){
+        employeeService.deleteEmployeeById(employeeId);
+    }
+
+    @PutMapping(path="/update/{employeeId}", consumes="application/json")
+    public void updateEmployee(@RequestBody Employee employee, @PathVariable(name="employeeId")Long employeeId) {
+        Employee emp = employeeService.findById(employeeId).getBody();
+        if (emp != null && employee.getId() != null) {
+            employeeService.updateEmployee(employee);
+        }
+    }
 }
