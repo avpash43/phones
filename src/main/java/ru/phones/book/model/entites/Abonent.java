@@ -1,4 +1,4 @@
-package ru.phones.book.model;
+package ru.phones.book.model.entites;
 
 import lombok.Data;
 

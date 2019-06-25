@@ -1,4 +1,4 @@
-package ru.phones.book.model;
+package ru.phones.book.model.entites;
 
 import lombok.Data;
 
@@ -10,14 +10,17 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
-public class Position {
+public class Address {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String position;
+    private String city;
 
     @NotNull
-    private String description;
+    private String street;
+
+    @NotNull
+    private String build;
 }

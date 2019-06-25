@@ -1,4 +1,4 @@
-package ru.phones.book.model;
+package ru.phones.book.model.entites;
 
 import lombok.Data;
 
@@ -10,13 +10,13 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
-public class Departament {
+public class Position {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String departament;
+    private String position;
 
     @NotNull
     private String description;
