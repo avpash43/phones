@@ -1,24 +1,24 @@
 create table if not exists Employee (
   id identity not null,
   firstname varchar(25) not null,
-  lastname varchar(25) not null
+  lastname varchar(25) unique not null
 );
 
 create table if not exists Position (
   id identity not null,
-  position varchar(100) not null,
+  position varchar(100) unique not null,
   description varchar(255)
 );
 
 create table if not exists Departament (
   id identity not null,
-  departament varchar(100) not null,
+  departament varchar(100) unique not null,
   description varchar(255)
 );
 
 create table if not exists Address (
   id identity not null,
-  city varchar(50) not null,
+  city varchar(50) unique not null,
   street varchar(255) not null,
   build varchar(10) not null
 );
