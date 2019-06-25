@@ -1,6 +1,7 @@
 package ru.phones.book.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/get/{employeeId}")
-    public Employee getById(@PathVariable(name="employeeId")Long employeeId) {
+    public ResponseEntity<Employee> getById(@PathVariable(name="employeeId")Long employeeId) {
         return employeeService.findById(employeeId);
     }
 }

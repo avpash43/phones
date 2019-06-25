@@ -1,6 +1,8 @@
 package ru.phones.book.model.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.Employee;
 import ru.phones.book.model.repositories.EmployeeRepository;
@@ -21,7 +23,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return epmloyees;
     }
 
-    public Employee findById(Long employeeId) {
-        return employeeRepository.findById(employeeId).orElse(new Employee());
+    public ResponseEntity<Employee> findById(Long employeeId) {
+        Optional<Employee> optEmployee = employeeRepository.findById(employeeId);
+        if(optEmployee.isPresent()) {
+            return new ResponseEntity<>(optEmployee.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 }
