@@ -1,5 +1,6 @@
 package ru.phones.book.model.services;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class EmployeeServiceTest {
     private EmployeeRepository employeeRepository;
 
     @Test
-    public void injectedComponentsAreNotNull(){
-        employeeRepository.findAll().forEach(x -> System.out.println(x.toString()));
-
+    public void testGetById(){
+        Employee employee = employeeRepository.findById(1L).orElse(new Employee());
+        assertThat(employee.getId()).isEqualTo(1L);
     }
 }
