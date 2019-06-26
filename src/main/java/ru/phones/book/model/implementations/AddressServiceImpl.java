@@ -24,9 +24,9 @@ public class AddressServiceImpl implements AddressService {
     }
 
     public ResponseEntity<Address> findById(Long addressId) {
-        Optional<Address> optAdresses = addressRepository.findById(addressId);
-        if(optAdresses.isPresent()) {
-            return new ResponseEntity<>(optAdresses.get(), HttpStatus.OK);
+        Optional<Address> optAddresses = addressRepository.findById(addressId);
+        if(optAddresses.isPresent()) {
+            return new ResponseEntity<>(optAddresses.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
