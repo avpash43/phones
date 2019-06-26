@@ -1,7 +1,6 @@
 package ru.phones.book.model.entites;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
