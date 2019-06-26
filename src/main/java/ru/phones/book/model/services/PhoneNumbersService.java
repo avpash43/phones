@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface PhoneNumbersService {
     List<PhoneNumbers> findAll();
-    ResponseEntity<PhoneNumbers> findById(Long employeeId);
-    PhoneNumbers addEmployee(PhoneNumbers employee);
-    void deleteEmployeeById(Long employeeId);
-    void updateEmployee(PhoneNumbers employee);
+    ResponseEntity<PhoneNumbers> findById(Long phoneNumbersId);
+    PhoneNumbers addPhoneNumbers(PhoneNumbers phoneNumbers);
+    void deletePhoneNumbersById(Long phoneNumbersId);
+    void updatePhoneNumbers(PhoneNumbers phoneNumbers);
 }

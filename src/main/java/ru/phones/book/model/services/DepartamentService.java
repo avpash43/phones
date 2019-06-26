@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface DepartamentService {
     List<Departament> findAll();
-    ResponseEntity<Departament> findById(Long employeeId);
-    Departament addEmployee(Departament employee);
-    void deleteEmployeeById(Long employeeId);
-    void updateEmployee(Departament employee);
+    ResponseEntity<Departament> findById(Long departamentId);
+    Departament addDepartament(Departament departament);
+    void deleteDepartamentById(Long departamentId);
+    void updateDepartament(Departament departament);
 }

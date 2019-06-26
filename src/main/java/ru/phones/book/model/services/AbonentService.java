@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface AbonentService {
     List<Abonent> findAll();
-    ResponseEntity<Abonent> findById(Long employeeId);
-    Abonent addEmployee(Abonent employee);
-    void deleteEmployeeById(Long employeeId);
-    void updateEmployee(Abonent employee);
+    ResponseEntity<Abonent> findById(Long abonentId);
+    Abonent addAbonent(Abonent abonent);
+    void deleteAbonentById(Long abonentId);
+    void updateAbonent(Abonent abonent);
 }

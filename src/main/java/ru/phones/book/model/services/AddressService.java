@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface AddressService {
     List<Address> findAll();
-    ResponseEntity<Address> findById(Long employeeId);
-    Address addEmployee(Address employee);
-    void deleteEmployeeById(Long employeeId);
-    void updateEmployee(Address employee);
+    ResponseEntity<Address> findById(Long addressId);
+    Address addAddress(Address address);
+    void deleteAddressById(Long addressId);
+    void updateAddress(Address address);
 }

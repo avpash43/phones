@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface PositionService {
     List<Position> findAll();
-    ResponseEntity<Position> findById(Long employeeId);
-    Position addEmployee(Position employee);
-    void deleteEmployeeById(Long employeeId);
-    void updateEmployee(Position employee);
+    ResponseEntity<Position> findById(Long eositionId);
+    Position addPosition(Position eosition);
+    void deletePositionById(Long eositionId);
+    void updatePosition(Position eosition);
 }

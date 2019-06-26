@@ -1,6 +1,7 @@
 package ru.phones.book.model.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.Address;
@@ -8,6 +9,7 @@ import ru.phones.book.model.repositories.AddressRepository;
 import ru.phones.book.model.services.AddressService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AddressServiceImpl implements AddressService {
@@ -16,27 +18,28 @@ public class AddressServiceImpl implements AddressService {
     private AddressRepository addressRepository;
 
     @Override
-    public List<Address> findAll() {
-        return null;
+    public  List<Address> findAll() {
+        List<Address> addresses = (List<Address>) addressRepository.findAll();
+        return addresses;
     }
 
-    @Override
-    public ResponseEntity<Address> findById(Long employeeId) {
-        return null;
+    public ResponseEntity<Address> findById(Long addressId) {
+        Optional<Address> optAdresses = addressRepository.findById(addressId);
+        if(optAdresses.isPresent()) {
+            return new ResponseEntity<>(optAdresses.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @Override
-    public Address addEmployee(Address employee) {
-        return null;
+    public Address addAddress(Address address) {
+        return addressRepository.save(address);
     }
 
-    @Override
-    public void deleteEmployeeById(Long employeeId) {
-
+    public void deleteAddressById(Long addressId){
+        addressRepository.deleteById(addressId);
     }
 
-    @Override
-    public void updateEmployee(Address employee) {
-
+    public void updateAddress(Address address) {
+        addressRepository.save(address);
     }
 }
