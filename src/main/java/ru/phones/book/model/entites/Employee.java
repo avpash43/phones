@@ -20,6 +20,5 @@ public class Employee {
     private String firstname;
 
     @NotNull
-    @UniqueElements
     private String lastname;
 }

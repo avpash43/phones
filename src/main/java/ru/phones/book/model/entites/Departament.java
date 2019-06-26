@@ -17,7 +17,6 @@ public class Departament {
     private Long id;
 
     @NotNull
-    @UniqueElements
     private String departament;
 
     @NotNull

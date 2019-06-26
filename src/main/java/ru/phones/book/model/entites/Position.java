@@ -17,7 +17,6 @@ public class Position {
     private Long id;
 
     @NotNull
-    @UniqueElements
     private String position;
 
     @NotNull
