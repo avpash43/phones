@@ -3,10 +3,7 @@ package ru.phones.book.model.entites;
 import lombok.Data;
 import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -20,5 +17,6 @@ public class Employee {
     private String firstname;
 
     @NotNull
+    @Column(unique=true)
     private String lastname;
 }
