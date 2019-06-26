@@ -21,22 +21,22 @@ public class AbonentServiceImpl implements AbonentService {
     }
 
     @Override
-    public ResponseEntity<Abonent> findById(Long employeeId) {
+    public ResponseEntity<Abonent> findById(Long abonentId) {
         return null;
     }
 
     @Override
-    public Abonent addEmployee(Abonent employee) {
+    public Abonent addAbonent(Abonent abonent) {
         return null;
     }
 
     @Override
-    public void deleteEmployeeById(Long employeeId) {
+    public void deleteAbonentById(Long abonentId) {
 
     }
 
     @Override
-    public void updateEmployee(Abonent employee) {
+    public void updateAbonent(Abonent abonent) {
 
     }
 }
