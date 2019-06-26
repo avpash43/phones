@@ -1,4 +1,4 @@
-package ru.phones.book.model.services.implementations;
+package ru.phones.book.model.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
