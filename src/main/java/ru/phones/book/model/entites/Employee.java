@@ -1,6 +1,7 @@
 package ru.phones.book.model.entites;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,5 +20,6 @@ public class Employee {
     private String firstname;
 
     @NotNull
+    @UniqueElements
     private String lastname;
 }

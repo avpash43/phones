@@ -1,6 +1,7 @@
 package ru.phones.book.model.entites;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ public class Position {
     private Long id;
 
     @NotNull
+    @UniqueElements
     private String position;
 
     @NotNull

@@ -22,12 +22,32 @@ public class RepositoriesTest {
     private PositionRepository positionRepository;
 
     @Test
-    public void injectedComponentsAreNotNull(){
+    public void injectedEmployeeAreNotNull(){
         assertThat(employeeRepository).isNotNull();
-//        assertThat(abonentRepository).isNotNull();
-//        assertThat(departamentRepository).isNotNull();
-//        assertThat(phoneNumbersRepository).isNotNull();
-//        assertThat(positionRepository).isNotNull();
+    }
+
+    @Test
+    public void injectedAdressAreNotNull(){
 //        assertThat(addressRepository).isNotNull();
+    }
+
+    @Test
+    public void injectedAbonentAreNotNull(){
+//        assertThat(abonentRepository).isNotNull();
+    }
+
+    @Test
+    public void injectedDepartamentAreNotNull(){
+//        assertThat(departamentRepository).isNotNull();
+    }
+
+    @Test
+    public void injectedPhoneNumbersAreNotNull(){
+//        assertThat(phoneNumbersRepository).isNotNull();
+    }
+
+    @Test
+    public void injectedPositionAreNotNull(){
+//        assertThat(positionRepository).isNotNull();
     }
 }
