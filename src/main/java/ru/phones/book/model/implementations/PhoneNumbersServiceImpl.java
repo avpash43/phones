@@ -9,6 +9,7 @@ import ru.phones.book.model.entites.PhoneNumbers;
 import ru.phones.book.model.repositories.PhoneNumbersRepository;
 import ru.phones.book.model.services.PhoneNumbersService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,8 @@ public class PhoneNumbersServiceImpl implements PhoneNumbersService {
 
     @Override
     public  List<PhoneNumbers> findAll() {
-        List<PhoneNumbers> phoneNumberses = (List<PhoneNumbers>) phoneNumbersRepository.findAll();
+        List<PhoneNumbers> phoneNumberses = new ArrayList<>();
+        phoneNumbersRepository.findAll().forEach(phone -> phoneNumberses.add(phone));
         return phoneNumberses;
     }
 
