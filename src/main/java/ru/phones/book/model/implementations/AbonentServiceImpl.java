@@ -10,6 +10,7 @@ import ru.phones.book.model.services.AbonentService;
 @Service
 public class AbonentServiceImpl implements AbonentService {
 
+    private Abonent abonent;
     private AbonentRepository abonentRepository;
     private AddressRepository addressRepository;
     private DepartamentRepository departamentRepository;
@@ -18,7 +19,8 @@ public class AbonentServiceImpl implements AbonentService {
     private PositionRepository positionRepository;
 
     @Autowired
-    public AbonentServiceImpl(AbonentRepository abonentRepository, AddressRepository addressRepository, DepartamentRepository departamentRepository, EmployeeRepository employeeRepository, PhoneNumbersRepository phoneNumbersRepository, PositionRepository positionRepository) {
+    public AbonentServiceImpl(Abonent abonent, AbonentRepository abonentRepository, AddressRepository addressRepository, DepartamentRepository departamentRepository, EmployeeRepository employeeRepository, PhoneNumbersRepository phoneNumbersRepository, PositionRepository positionRepository) {
+        this.abonent = abonent;
         this.abonentRepository = abonentRepository;
         this.addressRepository = addressRepository;
         this.departamentRepository = departamentRepository;
@@ -29,8 +31,7 @@ public class AbonentServiceImpl implements AbonentService {
 
     @Override
     public AbonentView addAbonent(AbonentView abonentView) {
-        //Long employeeId = employeeRepository.save(new Employee(abonentView.getFirstname(), abonentView.getLastname())).getId();
-
+        
         return null;
     }
 
