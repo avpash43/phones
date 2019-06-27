@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.phones.book.model.entites.Abonent;
 import ru.phones.book.model.entites.AbonentView;
 import ru.phones.book.model.services.AbonentService;
 import ru.phones.book.model.services.AbonentViewService;
@@ -39,7 +40,20 @@ public class AbonentController {
 
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
-    public AbonentView addAbonent(@RequestBody AbonentView abonentView) {
-        return abonentService.addAbonent(abonentView);
+    public AbonentView addAbonent(@RequestBody Abonent abonent) {
+        return abonentService.addAbonent(abonent);
+    }
+
+    @DeleteMapping("/delete/{abonentId}")
+    public void deleteAddressById(@PathVariable(name="abonentId")Long abonentId){
+        abonentService.deleteAbonentById(abonentId);
+    }
+
+    @PutMapping(path="/update/{abonentId}", consumes="application/json")
+    public void updateAddress(@RequestBody Abonent abonent, @PathVariable(name="abonentId")Long abonentId) {
+        Abonent emp = abonentService.findById(abonentId);
+        if (emp != null && abonent.getId() != null) {
+            abonentService.updateAbonent(abonent);
+        }
     }
 }

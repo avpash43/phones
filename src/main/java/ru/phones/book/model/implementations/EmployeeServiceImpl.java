@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee addEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+        return employeeRepository.saveAndFlush(employee);
     }
 
     @Override
@@ -52,6 +52,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void updateEmployee(Employee employee) {
-        employeeRepository.save(employee);
+        employeeRepository.saveAndFlush(employee);
     }
 }

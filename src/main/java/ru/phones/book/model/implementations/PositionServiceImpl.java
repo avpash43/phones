@@ -33,7 +33,7 @@ public class PositionServiceImpl implements PositionService {
 
     @Override
     public Position addPosition(Position position) {
-        return positionRepository.save(position);
+        return positionRepository.saveAndFlush(position);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class PositionServiceImpl implements PositionService {
 
     @Override
     public void updatePosition(Position position) {
-        positionRepository.save(position);
+        positionRepository.saveAndFlush(position);
     }
 }

@@ -33,7 +33,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public Address addAddress(Address address) {
-        return addressRepository.save(address);
+        return addressRepository.saveAndFlush(address);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public void updateAddress(Address address) {
-        addressRepository.save(address);
+        addressRepository.saveAndFlush(address);
     }
 }

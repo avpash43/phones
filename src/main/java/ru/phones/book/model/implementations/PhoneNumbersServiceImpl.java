@@ -33,7 +33,7 @@ public class PhoneNumbersServiceImpl implements PhoneNumbersService {
 
     @Override
     public PhoneNumbers addPhoneNumbers(PhoneNumbers phoneNumbers) {
-        return phoneNumbersRepository.save(phoneNumbers);
+        return phoneNumbersRepository.saveAndFlush(phoneNumbers);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class PhoneNumbersServiceImpl implements PhoneNumbersService {
 
     @Override
     public void updatePhoneNumbers(PhoneNumbers phoneNumbers) {
-        phoneNumbersRepository.save(phoneNumbers);
+        phoneNumbersRepository.saveAndFlush(phoneNumbers);
     }
 }

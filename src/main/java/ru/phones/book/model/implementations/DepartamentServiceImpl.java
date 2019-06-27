@@ -33,7 +33,7 @@ public class DepartamentServiceImpl implements DepartamentService {
 
     @Override
     public Departament addDepartament(Departament departament) {
-        return departamentRepository.save(departament);
+        return departamentRepository.saveAndFlush(departament);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class DepartamentServiceImpl implements DepartamentService {
 
     @Override
     public void updateDepartament(Departament departament) {
-        departamentRepository.save(departament);
+        departamentRepository.saveAndFlush(departament);
     }
 }

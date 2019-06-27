@@ -5,7 +5,8 @@ import ru.phones.book.model.entites.AbonentView;
 
 
 public interface AbonentService {
-    AbonentView addAbonent(AbonentView abonent);
+    Abonent findById(Long abonentId);
+    AbonentView addAbonent(Abonent abonent);
     void deleteAbonentById(Long abonentId);
     void updateAbonent(Abonent abonent);
 }

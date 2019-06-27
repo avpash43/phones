@@ -34,7 +34,7 @@ create table if not exists PhoneNumbers (
 
 create table if not exists Abonent (
   id identity not null,
-  employee bigint not null,
+  employee bigint unique not null,
   position bigint not null,
   departament bigint not null,
   address bigint not null,
