@@ -19,8 +19,4 @@ public class Position {
     @NotNull
     private String description;
 
-    public Position(@NotNull String position, @NotNull String description) {
-        this.position = position;
-        this.description = description;
-    }
 }

@@ -24,9 +24,4 @@ public class PhoneNumbers {
     @NotNull
     private Long personal;
 
-    public PhoneNumbers(@NotNull Integer external, @NotNull Short internal, @NotNull Long personal) {
-        this.external = external;
-        this.internal = internal;
-        this.personal = personal;
-    }
 }

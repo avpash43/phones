@@ -19,8 +19,4 @@ public class Employee {
     @Column(unique=true)
     private String lastname;
 
-    public Employee(@NotNull String firstname, @NotNull String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
 }
