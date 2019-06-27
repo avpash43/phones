@@ -40,6 +40,11 @@ public class AbonentController {
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
     public AbonentView addEmployee(@RequestBody AbonentView abonentView) {
-        return abonentService.addAbonent(abonentView);
+        AbonentView abonent = abonentViewService.findByLastnameAndFirstname(abonentView.getLastname(), abonentView.getFirstname()).getBody();
+
+        if (abonent == null) {
+            return abonentService.addAbonent(abonentView);
+        }
+        return abonent;
     }
 }

@@ -29,6 +29,8 @@ public class AbonentServiceImpl implements AbonentService {
 
     @Override
     public AbonentView addAbonent(AbonentView abonentView) {
+        Long employeeId = employeeRepository.save(new Employee(abonentView.getFirstname(), abonentView.getLastname())).getId();
+
         return null;
     }
 

@@ -11,4 +11,5 @@ import java.util.Optional;
 @Repository
 public interface AbonentViewRepository extends CrudRepository<AbonentView, Long> {
     Optional<AbonentView> findByLastname(String lastname);
+    Optional<AbonentView> findByLastnameAndFirstname(String lastname, String firstname);
 }

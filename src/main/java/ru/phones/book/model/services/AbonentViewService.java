@@ -9,4 +9,5 @@ public interface AbonentViewService {
     List<AbonentView> findAll();
     ResponseEntity<AbonentView> findById(Long abonentViewId);
     ResponseEntity<AbonentView> findByLastname(String abonentViewLastname);
+    ResponseEntity<AbonentView> findByLastnameAndFirstname(String abonentViewLastname, String abonentViewFirstname);
 }
