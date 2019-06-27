@@ -37,6 +37,12 @@ public class AbonentViewServiceImpl implements AbonentViewService {
         return getAbonentViewResponseEntity(optAbonentView);
     }
 
+    @Override
+    public ResponseEntity<AbonentView> findByLastnameAndFirstname(String abonentViewLastname, String abonentViewFirstname) {
+        Optional<AbonentView> optAbonentView = abonentViewRepository.findByLastnameAndFirstname(abonentViewLastname, abonentViewFirstname);
+        return getAbonentViewResponseEntity(optAbonentView);
+    }
+
     private ResponseEntity<AbonentView> getAbonentViewResponseEntity(Optional<AbonentView> optAbonentView) {
         if(optAbonentView.isPresent()) {
             return new ResponseEntity<>(optAbonentView.get(), HttpStatus.OK);
