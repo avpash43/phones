@@ -28,6 +28,16 @@ public class AbonentViewServiceImpl implements AbonentViewService {
     @Override
     public ResponseEntity<AbonentView> findById(Long abonentViewId) {
         Optional<AbonentView> optAbonentView = abonentViewRepository.findById(abonentViewId);
+        return getAbonentViewResponseEntity(optAbonentView);
+    }
+
+    @Override
+    public ResponseEntity<AbonentView> findByLastname(String abonentViewLastname) {
+        Optional<AbonentView> optAbonentView = abonentViewRepository.findByLastname(abonentViewLastname);
+        return getAbonentViewResponseEntity(optAbonentView);
+    }
+
+    private ResponseEntity<AbonentView> getAbonentViewResponseEntity(Optional<AbonentView> optAbonentView) {
         if(optAbonentView.isPresent()) {
             return new ResponseEntity<>(optAbonentView.get(), HttpStatus.OK);
         }

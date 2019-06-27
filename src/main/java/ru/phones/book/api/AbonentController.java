@@ -13,7 +13,7 @@ import ru.phones.book.model.services.AbonentViewService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/abonent", produces="application/json")
+@RequestMapping(path="/api/abonent/get", produces="application/json")
 public class AbonentController {
     private final AbonentViewService abonentViewService;
     private final AbonentService abonentService;
@@ -24,13 +24,18 @@ public class AbonentController {
         this.abonentService = abonentService;
     }
 
-    @GetMapping("/get")
+    @GetMapping
     public List<AbonentView> getAll() {
         return abonentViewService.findAll();
     }
 
-    @GetMapping("/get/{abonentId}")
+    @GetMapping("/id/{abonentId}")
     public ResponseEntity<AbonentView> getById(@PathVariable(name="abonentId")Long abonentId) {
         return abonentViewService.findById(abonentId);
+    }
+
+    @GetMapping("/lastname/{abonentLastname}")
+    public ResponseEntity<AbonentView> getById(@PathVariable(name="abonentLastname")String abonentLastname) {
+        return abonentViewService.findByLastname(abonentLastname);
     }
 }

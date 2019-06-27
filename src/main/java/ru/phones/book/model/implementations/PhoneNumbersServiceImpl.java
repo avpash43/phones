@@ -26,6 +26,7 @@ public class PhoneNumbersServiceImpl implements PhoneNumbersService {
         return phoneNumberses;
     }
 
+    @Override
     public ResponseEntity<PhoneNumbers> findById(Long phoneNumbersId) {
         Optional<PhoneNumbers> optPhoneNumbers = phoneNumbersRepository.findById(phoneNumbersId);
         if(optPhoneNumbers.isPresent()) {
@@ -34,14 +35,17 @@ public class PhoneNumbersServiceImpl implements PhoneNumbersService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @Override
     public PhoneNumbers addPhoneNumbers(PhoneNumbers phoneNumbers) {
         return phoneNumbersRepository.save(phoneNumbers);
     }
 
+    @Override
     public void deletePhoneNumbersById(Long phoneNumbersId){
         phoneNumbersRepository.deleteById(phoneNumbersId);
     }
 
+    @Override
     public void updatePhoneNumbers(PhoneNumbers phoneNumbers) {
         phoneNumbersRepository.save(phoneNumbers);
     }

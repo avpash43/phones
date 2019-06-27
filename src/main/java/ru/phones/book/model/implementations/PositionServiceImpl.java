@@ -26,6 +26,7 @@ public class PositionServiceImpl implements PositionService {
         return positiones;
     }
 
+    @Override
     public ResponseEntity<Position> findById(Long positionId) {
         Optional<Position> optPosition = positionRepository.findById(positionId);
         if(optPosition.isPresent()) {
@@ -34,14 +35,17 @@ public class PositionServiceImpl implements PositionService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @Override
     public Position addPosition(Position position) {
         return positionRepository.save(position);
     }
 
+    @Override
     public void deletePositionById(Long positionId){
         positionRepository.deleteById(positionId);
     }
 
+    @Override
     public void updatePosition(Position position) {
         positionRepository.save(position);
     }

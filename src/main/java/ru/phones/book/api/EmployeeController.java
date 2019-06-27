@@ -24,12 +24,12 @@ public class EmployeeController {
         return employeeService.findAll();
     }
 
-    @GetMapping("/get/{employeeId}")
+    @GetMapping("/get/id/{employeeId}")
     public ResponseEntity<Employee> getById(@PathVariable(name="employeeId")Long employeeId) {
         return employeeService.findById(employeeId);
     }
 
-    @GetMapping("/get/{lastname}")
+    @GetMapping("/get/lastname/{lastname}")
     public ResponseEntity<Employee> getByLastname(@PathVariable(name="lastname")String lastname) {
         return employeeService.findByLastname(lastname);
     }

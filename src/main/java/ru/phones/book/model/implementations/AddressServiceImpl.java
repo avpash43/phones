@@ -25,6 +25,7 @@ public class AddressServiceImpl implements AddressService {
         return addresses;
     }
 
+    @Override
     public ResponseEntity<Address> findById(Long addressId) {
         Optional<Address> optAddresses = addressRepository.findById(addressId);
         if(optAddresses.isPresent()) {
@@ -33,14 +34,17 @@ public class AddressServiceImpl implements AddressService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @Override
     public Address addAddress(Address address) {
         return addressRepository.save(address);
     }
 
+    @Override
     public void deleteAddressById(Long addressId){
         addressRepository.deleteById(addressId);
     }
 
+    @Override
     public void updateAddress(Address address) {
         addressRepository.save(address);
     }

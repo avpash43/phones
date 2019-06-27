@@ -26,6 +26,7 @@ public class DepartamentServiceImpl implements DepartamentService {
         return departamentes;
     }
 
+    @Override
     public ResponseEntity<Departament> findById(Long departamentId) {
         Optional<Departament> optDepartament = departamentRepository.findById(departamentId);
         if(optDepartament.isPresent()) {
@@ -34,14 +35,17 @@ public class DepartamentServiceImpl implements DepartamentService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @Override
     public Departament addDepartament(Departament departament) {
         return departamentRepository.save(departament);
     }
 
+    @Override
     public void deleteDepartamentById(Long departamentId){
         departamentRepository.deleteById(departamentId);
     }
 
+    @Override
     public void updateDepartament(Departament departament) {
         departamentRepository.save(departament);
     }

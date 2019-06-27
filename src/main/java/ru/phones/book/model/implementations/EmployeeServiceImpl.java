@@ -25,6 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return epmloyees;
     }
 
+    @Override
     public ResponseEntity<Employee> findById(Long employeeId) {
         Optional<Employee> optEmployee = employeeRepository.findById(employeeId);
         if(optEmployee.isPresent()) {
@@ -42,14 +43,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @Override
     public Employee addEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 
+    @Override
     public void deleteEmployeeById(Long employeeId){
         employeeRepository.deleteById(employeeId);
     }
 
+    @Override
     public void updateEmployee(Employee employee) {
         employeeRepository.save(employee);
     }
