@@ -24,7 +24,7 @@ public class EmployeeRepositoryTests {
         employee.setLastname("testov");
         employeeRepository.save(employee);
         Employee employee2 = employeeRepository.findByLastname("testov").get();
-        assertNotNull(employee);
+        assertNotNull(employee2);
         assertEquals(employee2.getFirstname(), employee.getFirstname());
         assertEquals(employee2.getLastname(), employee.getLastname());
     }
@@ -41,6 +41,7 @@ public class EmployeeRepositoryTests {
         employee2.setLastname("testov3");
         employeeRepository.save(employee2);
         Employee employee1Updated = employeeRepository.findById(employeeId).get();
+        assertNotNull(employee1Updated);
         assertEquals(employee2.getFirstname(), employee1Updated.getFirstname());
         assertEquals(employee2.getLastname(), employee1Updated.getLastname());
     }
