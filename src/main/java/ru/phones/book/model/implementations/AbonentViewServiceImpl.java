@@ -8,7 +8,6 @@ import ru.phones.book.model.entites.AbonentView;
 import ru.phones.book.model.repositories.AbonentViewRepository;
 import ru.phones.book.model.services.AbonentViewService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +19,7 @@ public class AbonentViewServiceImpl implements AbonentViewService {
 
     @Override
     public List<AbonentView> findAll() {
-        List<AbonentView> abonentViews = new ArrayList<>();
-        abonentViewRepository.findAll().forEach(abonent -> abonentViews.add(abonent));
-        return abonentViews;
+        return abonentViewRepository.findAll();
     }
 
     @Override

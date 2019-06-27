@@ -5,11 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.Departament;
-import ru.phones.book.model.entites.Departament;
 import ru.phones.book.model.repositories.DepartamentRepository;
 import ru.phones.book.model.services.DepartamentService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +19,7 @@ public class DepartamentServiceImpl implements DepartamentService {
 
     @Override
     public  List<Departament> findAll() {
-        List<Departament> departamentes = new ArrayList<>();
-        departamentRepository.findAll().forEach(departament -> departamentes.add(departament));
-        return departamentes;
+        return departamentRepository.findAll();
     }
 
     @Override

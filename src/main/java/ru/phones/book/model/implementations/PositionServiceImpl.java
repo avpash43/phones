@@ -5,11 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.Position;
-import ru.phones.book.model.entites.Position;
 import ru.phones.book.model.repositories.PositionRepository;
 import ru.phones.book.model.services.PositionService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +19,7 @@ public class PositionServiceImpl implements PositionService {
 
     @Override
     public  List<Position> findAll() {
-        List<Position> positiones = new ArrayList<>();
-        positionRepository.findAll().forEach(position -> positiones.add(position));
-        return positiones;
+        return positionRepository.findAll();
     }
 
     @Override

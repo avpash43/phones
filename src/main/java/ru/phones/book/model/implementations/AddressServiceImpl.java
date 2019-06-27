@@ -8,7 +8,6 @@ import ru.phones.book.model.entites.Address;
 import ru.phones.book.model.repositories.AddressRepository;
 import ru.phones.book.model.services.AddressService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +19,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public  List<Address> findAll() {
-        List<Address> addresses = new ArrayList<>();
-        addressRepository.findAll().forEach(address -> addresses.add(address));
-        return addresses;
+        return addressRepository.findAll();
     }
 
     @Override

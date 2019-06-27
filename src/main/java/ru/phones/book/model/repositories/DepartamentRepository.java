@@ -1,9 +1,9 @@
 package ru.phones.book.model.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.phones.book.model.entites.Departament;
 
 @Repository
-public interface DepartamentRepository extends CrudRepository<Departament, Long> {
+public interface DepartamentRepository extends JpaRepository<Departament, Long> {
 }

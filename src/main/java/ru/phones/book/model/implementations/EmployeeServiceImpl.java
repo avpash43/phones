@@ -8,7 +8,6 @@ import ru.phones.book.model.entites.Employee;
 import ru.phones.book.model.repositories.EmployeeRepository;
 import ru.phones.book.model.services.EmployeeService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public  List<Employee> findAll() {
-        List<Employee> epmloyees = new ArrayList<>();
-        employeeRepository.findAll().forEach(employee -> epmloyees.add(employee));
-        return epmloyees;
+        return  employeeRepository.findAll();
     }
 
     @Override
