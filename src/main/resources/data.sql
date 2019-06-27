@@ -31,7 +31,7 @@ select
     phn.external as external_number,
     phn.internal as internal_number,
     phn.personal as personal_number,
-    hou.lastname as headofunit_lasname,
+    hou.lastname as headofunit_lastname,
     hou.firstname as headofunit_firstname,
     ab.wasadded as wasadded
 from abonent as ab

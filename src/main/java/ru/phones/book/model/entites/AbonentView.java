@@ -19,10 +19,16 @@ public class AbonentView {
     private String city;
     private String street;
     private String build;
-    private Integer external;
-    private Short internal;
-    private Long personal;
     private Date wasadded;
+
+    @Column(name = "external_number")
+    private Integer external;
+
+    @Column(name = "internal_number")
+    private Short internal;
+
+    @Column(name = "personal_number")
+    private Long personal;
 
     @Column(name = "headofunit_firstname")
     private String headOfUnitFirstname;
