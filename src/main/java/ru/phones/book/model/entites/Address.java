@@ -21,4 +21,10 @@ public class Address {
 
     @NotNull
     private String build;
+
+    public Address(@NotNull String city, @NotNull String street, @NotNull String build) {
+        this.city = city;
+        this.street = street;
+        this.build = build;
+    }
 }
