@@ -16,7 +16,6 @@ public class Employee {
     private String firstname;
 
     @NotNull
-    @Column(unique=true)
     private String lastname;
 
 }

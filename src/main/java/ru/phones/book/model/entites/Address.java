@@ -13,7 +13,6 @@ public class Address {
     private Long id;
 
     @NotNull
-    @Column(unique=true)
     private String city;
 
     @NotNull
