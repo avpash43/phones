@@ -33,6 +33,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @Override
+    public ResponseEntity<Employee> findByLastname(String lastname) {
+        Optional<Employee> optEmployee = employeeRepository.findByLastname(lastname);
+        if(optEmployee.isPresent()) {
+            return new ResponseEntity<>(optEmployee.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
     public Employee addEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }

@@ -29,6 +29,11 @@ public class EmployeeController {
         return employeeService.findById(employeeId);
     }
 
+    @GetMapping("/get/{lastname}")
+    public ResponseEntity<Employee> getByLastname(@PathVariable(name="lastname")String lastname) {
+        return employeeService.findByLastname(lastname);
+    }
+
     @PostMapping(path="/post", consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Employee addEmployee(@RequestBody Employee employee) {
