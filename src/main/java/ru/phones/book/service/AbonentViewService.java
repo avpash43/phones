@@ -1,40 +1,35 @@
-package ru.phones.book.model.implementations;
+package ru.phones.book.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.AbonentView;
-import ru.phones.book.model.repositories.AbonentViewRepository;
-import ru.phones.book.model.services.AbonentViewService;
+import ru.phones.book.repository.AbonentViewRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AbonentViewServiceImpl implements AbonentViewService {
+public class AbonentViewService {
 
     @Autowired
     AbonentViewRepository abonentViewRepository;
 
-    @Override
     public List<AbonentView> findAll() {
         return abonentViewRepository.findAll();
     }
 
-    @Override
     public ResponseEntity<AbonentView> findById(Long abonentViewId) {
         Optional<AbonentView> optAbonentView = abonentViewRepository.findById(abonentViewId);
         return getAbonentViewResponseEntity(optAbonentView);
     }
 
-    @Override
     public ResponseEntity<AbonentView> findByLastname(String abonentViewLastname) {
         Optional<AbonentView> optAbonentView = abonentViewRepository.findByLastname(abonentViewLastname);
         return getAbonentViewResponseEntity(optAbonentView);
     }
 
-    @Override
     public ResponseEntity<AbonentView> findByLastnameAndFirstname(String abonentViewLastname, String abonentViewFirstname) {
         Optional<AbonentView> optAbonentView = abonentViewRepository.findByLastnameAndFirstname(abonentViewLastname, abonentViewFirstname);
         return getAbonentViewResponseEntity(optAbonentView);

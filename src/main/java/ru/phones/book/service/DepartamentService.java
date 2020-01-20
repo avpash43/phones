@@ -1,28 +1,25 @@
-package ru.phones.book.model.implementations;
+package ru.phones.book.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.Departament;
-import ru.phones.book.model.repositories.DepartamentRepository;
-import ru.phones.book.model.services.DepartamentService;
+import ru.phones.book.repository.DepartamentRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DepartamentServiceImpl implements DepartamentService {
+public class DepartamentService {
 
     @Autowired
     private DepartamentRepository departamentRepository;
 
-    @Override
     public  List<Departament> findAll() {
         return departamentRepository.findAll();
     }
 
-    @Override
     public ResponseEntity<Departament> findById(Long departamentId) {
         Optional<Departament> optDepartament = departamentRepository.findById(departamentId);
         if(optDepartament.isPresent()) {
@@ -31,17 +28,14 @@ public class DepartamentServiceImpl implements DepartamentService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @Override
     public Departament addDepartament(Departament departament) {
         return departamentRepository.saveAndFlush(departament);
     }
 
-    @Override
     public void deleteDepartamentById(Long departamentId){
         departamentRepository.deleteById(departamentId);
     }
 
-    @Override
     public void updateDepartament(Departament departament) {
         departamentRepository.saveAndFlush(departament);
     }

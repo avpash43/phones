@@ -1,16 +1,16 @@
-package ru.phones.book.api;
+package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Departament;
-import ru.phones.book.model.services.DepartamentService;
+import ru.phones.book.service.DepartamentService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/departament", produces="application/json")
+@RequestMapping(path="/v1/api/departament", produces="application/json")
 public class DepartamentController {
     private final DepartamentService departamentService;
 

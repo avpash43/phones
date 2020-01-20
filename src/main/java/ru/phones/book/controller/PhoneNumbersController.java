@@ -1,16 +1,16 @@
-package ru.phones.book.api;
+package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.PhoneNumbers;
-import ru.phones.book.model.services.PhoneNumbersService;
+import ru.phones.book.service.PhoneNumbersService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/phonenumber", produces="application/json")
+@RequestMapping(path="/v1/api/phonenumber", produces="application/json")
 public class PhoneNumbersController {
     private final PhoneNumbersService phoneNumbersService;
 

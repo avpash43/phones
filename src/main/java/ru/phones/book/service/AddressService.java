@@ -1,28 +1,25 @@
-package ru.phones.book.model.implementations;
+package ru.phones.book.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.phones.book.model.entites.Address;
-import ru.phones.book.model.repositories.AddressRepository;
-import ru.phones.book.model.services.AddressService;
+import ru.phones.book.repository.AddressRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AddressServiceImpl implements AddressService {
+public class AddressService {
 
     @Autowired
     private AddressRepository addressRepository;
 
-    @Override
     public  List<Address> findAll() {
         return addressRepository.findAll();
     }
 
-    @Override
     public ResponseEntity<Address> findById(Long addressId) {
         Optional<Address> optAddresses = addressRepository.findById(addressId);
         if(optAddresses.isPresent()) {
@@ -31,17 +28,14 @@ public class AddressServiceImpl implements AddressService {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @Override
     public Address addAddress(Address address) {
         return addressRepository.saveAndFlush(address);
     }
 
-    @Override
     public void deleteAddressById(Long addressId){
         addressRepository.deleteById(addressId);
     }
 
-    @Override
     public void updateAddress(Address address) {
         addressRepository.saveAndFlush(address);
     }

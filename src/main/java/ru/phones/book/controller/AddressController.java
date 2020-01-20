@@ -1,16 +1,16 @@
-package ru.phones.book.api;
+package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Address;
-import ru.phones.book.model.services.AddressService;
+import ru.phones.book.service.AddressService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/address", produces="application/json")
+@RequestMapping(path="/v1/api/address", produces="application/json")
 public class AddressController {
     private final AddressService addressService;
 

@@ -1,4 +1,4 @@
-package ru.phones.book.api;
+package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -6,13 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Abonent;
 import ru.phones.book.model.entites.AbonentView;
-import ru.phones.book.model.services.AbonentService;
-import ru.phones.book.model.services.AbonentViewService;
+import ru.phones.book.service.AbonentService;
+import ru.phones.book.service.AbonentViewService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/abonent", produces="application/json")
+@RequestMapping(path="/v1/api/abonent", produces="application/json")
 public class AbonentController {
     private final AbonentViewService abonentViewService;
     private final AbonentService abonentService;

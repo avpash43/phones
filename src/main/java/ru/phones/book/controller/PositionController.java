@@ -1,16 +1,16 @@
-package ru.phones.book.api;
+package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Position;
-import ru.phones.book.model.services.PositionService;
+import ru.phones.book.service.PositionService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/position", produces="application/json")
+@RequestMapping(path="/v1/api/position", produces="application/json")
 public class PositionController {
     private final PositionService positionService;
 

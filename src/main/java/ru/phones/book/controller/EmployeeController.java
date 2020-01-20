@@ -1,16 +1,16 @@
-package ru.phones.book.api;
+package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Employee;
-import ru.phones.book.model.services.EmployeeService;
+import ru.phones.book.service.EmployeeService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/employee", produces="application/json")
+@RequestMapping(path="/v1/api/employee", produces="application/json")
 public class EmployeeController {
     private final EmployeeService employeeService;
 
