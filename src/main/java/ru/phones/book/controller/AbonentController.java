@@ -1,6 +1,9 @@
 package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +11,6 @@ import ru.phones.book.model.entites.Abonent;
 import ru.phones.book.model.entites.AbonentView;
 import ru.phones.book.service.AbonentService;
 import ru.phones.book.service.AbonentViewService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(path="/v1/api/abonent", produces="application/json")
@@ -24,8 +25,16 @@ public class AbonentController {
     }
 
     @GetMapping("/get")
-    public List<AbonentView> getAll() {
-        return abonentViewService.findAll();
+    public Resources<Resource<AbonentView>> getAll() {
+
+        Resources<Resource<AbonentView>> recentResources = Resources.wrap(abonentViewService.findAll());
+        recentResources.add(
+                ControllerLinkBuilder.linkTo(AbonentController.class)
+                        .slash("get")
+                        .withRel("abonents"));
+
+        return recentResources;
+        //return abonentViewService.findAll();
     }
 
     @GetMapping("/get/id/{abonentId}")
