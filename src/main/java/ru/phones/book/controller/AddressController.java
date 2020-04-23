@@ -2,12 +2,12 @@ package ru.phones.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.phones.book.model.entites.Address;
 import ru.phones.book.service.AddressService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path="/v1/api/address", produces="application/json")
@@ -20,13 +20,21 @@ public class AddressController {
     }
 
     @GetMapping("/get")
-    public List<Address> getAll() {
-        return addressService.findAll();
+    public Response getAll() {
+        return Response.builder()
+                .data(List.of(
+                        Map.of("response", addressService.findAll())
+                ))
+                .build();
     }
 
     @GetMapping("/get/{addressId}")
-    public ResponseEntity<Address> getById(@PathVariable(name="addressId")Long addressId) {
-        return addressService.findById(addressId);
+    public Response getById(@PathVariable(name="addressId")Long addressId) {
+        return Response.builder()
+                .data(List.of(
+                        Map.of("response", addressService.findById(addressId))
+                ))
+                .build();
     }
 
     @PostMapping(path="/post", consumes="application/json")

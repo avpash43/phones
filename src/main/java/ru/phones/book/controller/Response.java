@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 
 @Data
@@ -14,12 +15,18 @@ class Response {
 
     @SuppressWarnings("UnusedAssignment")
     @Builder.Default
-    private int httpStatusCode = HttpStatus.OK.value();
+    private int status = HttpStatus.OK.value();
 
     @SuppressWarnings("UnusedAssignment")
     @Builder.Default
     private Object data = Collections.EMPTY_LIST;
 
-    private String errorMessage;
+    @SuppressWarnings("UnusedAssignment")
+    @Builder.Default
+    private Object error = "";
+
+    private String message;
+
+    private LocalDateTime timestamp;
 
 }

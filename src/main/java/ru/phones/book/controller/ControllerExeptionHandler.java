@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import ru.phones.book.exeptions.SomeBadExampleExeption;
+import ru.phones.book.exeptions.SomeForbiddenExampleExeption;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 
 @Slf4j
 @ControllerAdvice
@@ -16,13 +18,36 @@ public class ControllerExeptionHandler {
     @ExceptionHandler(SomeBadExampleExeption.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public Response handleManualTestException(HttpServletRequest request, SomeBadExampleExeption e) {
+    public Response handleSomeBadExeption(HttpServletRequest request, SomeBadExampleExeption e) {
         log.error(e.getLocalizedMessage());
         return Response.builder()
-                .httpStatusCode(HttpStatus.BAD_REQUEST.value())
-                .errorMessage(e.getMessage() != null
-                        ? e.getMessage()
-                        : "SomeBad: ")
+                .status(HttpStatus.BAD_REQUEST.value())
+                .message(e.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+
+    @ExceptionHandler(SomeForbiddenExampleExeption.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    public Response handleSomeForbiddenExeption(SomeForbiddenExampleExeption e) {
+        log.error(e.getLocalizedMessage());
+        return Response.builder()
+                .status(HttpStatus.FORBIDDEN.value())
+                .message(e.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public Response handleException(Exception e) {
+        log.error(e.getLocalizedMessage());
+        return Response.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .message(e.getLocalizedMessage())
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 }
