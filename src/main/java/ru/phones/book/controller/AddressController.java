@@ -20,6 +20,7 @@ public class AddressController {
     }
 
     @GetMapping("/get")
+    @ResponseStatus(HttpStatus.OK)
     public Response getAll() {
         return Response.builder()
                 .data(List.of(
@@ -29,6 +30,7 @@ public class AddressController {
     }
 
     @GetMapping("/get/{addressId}")
+    @ResponseStatus(HttpStatus.OK)
     public Response getById(@PathVariable(name="addressId")Long addressId) {
         return Response.builder()
                 .data(List.of(
