@@ -16,16 +16,19 @@ target/
 ### IntelliJ IDEA ###
 .idea
 *.iws
-*.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+### Gradle ###
+.gradle*
 build/
-
-### VS Code ###
-.vscode/
+.project
+.settings
+*iml
+out*
+sonar_home*
+logs*
+var
+gradle.properties
+bin*
+.classpath
+*swagger-code*
